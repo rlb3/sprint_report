@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120829154927) do
+ActiveRecord::Schema.define(:version => 20120829172859) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(:version => 20120829154927) do
   create_table "sprints", :force => true do |t|
     t.integer  "number"
     t.datetime "start"
-    t.datetime "end"
+    t.datetime "end_sprint"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
