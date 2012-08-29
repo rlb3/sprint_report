@@ -1,4 +1,8 @@
 SprintReport::Application.routes.draw do
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   get "home/index"
 
   get "home/create"
