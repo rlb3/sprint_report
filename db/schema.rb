@@ -11,12 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120829152248) do
+ActiveRecord::Schema.define(:version => 20120829152610) do
+
+  create_table "names", :force => true do |t|
+    t.integer  "percent"
+    t.integer  "sprint_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "sprints", :force => true do |t|
     t.integer  "number"
     t.datetime "start"
     t.datetime "end"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.integer  "percent"
+    t.integer  "sprint_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
