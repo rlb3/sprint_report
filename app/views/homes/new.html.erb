@@ -4,7 +4,7 @@
       <%= f.label :sprint %>
       <%= f.select(:sprint_id, @sprints.map {|s| ["#{s.number} | #{s.start.strftime("%F")} => #{s.end_sprint.strftime("%F")}", s.id]}) %> 
       <%= f.label :name %>
-      <%= f.select(:name, ["Donald Holl", "George Alpizar", "Joe Zhou", "Kyle Lafkoff", "Robert Boone","Todd Rinaldo"]) %>
+      <%= f.select(:name, @team.map { |t| t.full_name }) %>
       <%= f.label :role %>
       <%= f.select(:role, ["Development", "Documentation", "Product Owner/Dev", "Scrum Master/Dev", "Quality Assurance"]) %>
       <%= f.label :percentage %>
