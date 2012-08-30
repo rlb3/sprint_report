@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
   def index
-    @sprints = Sprint.order("number ASC")
+    @sprints = Sprint.order("number DESC")
   end
 
   def new
@@ -16,7 +16,7 @@ class HomesController < ApplicationController
 
     sprint.users << user
 
-    redirect_to new_home_path, :notice => "Success!"
+    redirect_to new_home_path, :notice => "Added #{params[:user][:name]}."
   end
 
   def show
