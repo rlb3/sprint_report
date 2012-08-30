@@ -1,11 +1,16 @@
-<%= form_for @user, :url => { :action => "create" } do |f| %>
-  <%= f.label :sprint %>
-  <%= f.select(:sprint_id, @sprints.map {|s| ["#{s.number}", s.id]}) %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :role %>
-  <%= f.text_field :role %>
-  <%= f.label :percentage %>
-  <%= f.text_field :percent %>
-  <%= f.submit "Create" %>
-<% end %>
+<div class="row">
+  <div class="offset1 span2">
+    <%= form_for @user, :url => { :action => "create" } do |f| %>
+      <%= f.label :sprint %>
+      <%= f.select(:sprint_id, @sprints.map {|s| ["#{s.number} | #{s.start.strftime("%F")} => #{s.end_sprint.strftime("%F")}", s.id]}) %> 
+      <%= f.label :name %>
+      <%= f.select(:name, ["Donald Holl", "George Alpizar", "Joe Zhou", "Kyle Lafkoff", "Robert Boone","Todd Rinaldo"]) %>
+      <%= f.label :role %>
+      <%= f.select(:role, ["Development", "Documentation", "Product", "Owner/Dev", "Scrum Master/Dev", "Quality Assurance"]) %>
+      <%= f.label :percentage %>
+      <%= f.number_field :percent, :in => 0..100, :step => 5 %>
+      <%= f.submit "Create" %>
+    <% end %>
+  </div>
+</div>
+  
