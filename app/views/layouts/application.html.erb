@@ -18,7 +18,14 @@
   </div>
 
 <% if flash[:notice] %>
-  <%= flash[:notice] %>
+  <div class="row">
+    <div class="offset1 span 5">
+      <div class="alert">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <%= flash[:notice] %>
+      </div>
+    </div>
+  </div>
 <% end %>
 
 <%= yield %>
