@@ -9,6 +9,7 @@
   </div>
 <% else %>
   <% @sprints.all.each do |sprint| %>
+  <% next if sprint.users.count == 0 %>
     <div class="row">
       <div class="offset1 span1"><strong>Team:</strong></div>
       <div class="span2">Code Monkeys</div>
@@ -39,6 +40,9 @@
         <div class="span1"><%= user.percent %>%</div>
       </div>
     <% end %>
+    <div class="row">
+      <div class="offset6 span2"><%= link_to "Show Sprint #{sprint.number}", home_path(sprint), :class => "btn" %></div>
+    </div>
 
     <div class="row">
       <div class="offset1 span12"><hr /></div>

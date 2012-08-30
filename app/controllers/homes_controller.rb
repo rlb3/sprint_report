@@ -20,5 +20,6 @@ class HomesController < ApplicationController
   end
 
   def show
+    @sprint = Sprint.find(params[:id])
   end
 end
