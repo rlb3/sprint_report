@@ -8,6 +8,12 @@ class HomesController < ApplicationController
   end
 
   def create
+    sprint = Sprint.find(params[:user][:sprint_id])
+    user = User.create(name: params[:user][:name], role: params[:user][:role], percent: params[:user][:percent])
+
+    sprint.users << user
+
+    redirect_to new_home_path, :notice => "Success!"
   end
 
   def show
