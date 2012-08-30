@@ -7,6 +7,7 @@ class HomesController < ApplicationController
     @sprints = Sprint.order("number ASC")
     @user = User.new
     @team = TeamMember.order("last_name")
+    @roles = Role.order("name")
   end
 
   def create

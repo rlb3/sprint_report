@@ -6,7 +6,7 @@
       <%= f.label :name %>
       <%= f.select(:name, @team.map { |t| t.full_name }) %>
       <%= f.label :role %>
-      <%= f.select(:role, ["Development", "Documentation", "Product Owner/Dev", "Scrum Master/Dev", "Quality Assurance"]) %>
+      <%= f.select(:role, @roles.map { |r| r.name }) %>
       <%= f.label :percentage %>
       <%= f.number_field :percent, :in => 0..100, :step => 5 %>
       <%= f.submit "Create" %>
