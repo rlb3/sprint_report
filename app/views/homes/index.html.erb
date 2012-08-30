@@ -1,2 +1,39 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+
+
+<% @sprints.all.each do |sprint| %>
+<div class="row">
+  <div class="offset1 span1"><strong>Team:</strong></div>
+  <div class="span2">Code Monkeys</div>
+</div>
+<div class="row">
+  <div class="offset1 span1"><strong>Sprint:</strong></div>
+  <div class="span1"><%= sprint.number %></div>
+</div>
+<div class="row">
+  <div class="offset1 span1"><strong>Duration:</strong></div>
+  <div class="span3"><%= sprint.start.strftime("%F") %> - <%= sprint.end_sprint.strftime("%F") %></div>
+  <div class="span2"><%= sprint.days %> business days</div>
+</div>
+<div class="row">
+  <div class="offset1 span1"><strong>Project:</strong></div>
+  <div class="span2">Perl RPM Project</div>
+</div>
+
+<div class="row">
+  <div class="offset2 span2"><strong>NAME</strong></div>
+  <div class="span2"><strong>ROLE</strong></div>
+  <div class="span1"><strong>TIME</strong></div>
+</div>
+<% sprint.users.each do |user| %>
+<div class="row">
+  <div class="offset2 span2"><%= user.name %></div>
+  <div class="span2"><%= user.role %></div>
+  <div class="span1"><%= user.percent %>%</div>
+</div>
+<% end %>
+
+
+<div class="row">
+  <div class="offset1 span12"><hr /></div>
+</div>
+<% end%>
