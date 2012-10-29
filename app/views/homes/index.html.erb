@@ -9,7 +9,6 @@
   </div>
 <% else %>
   <% @sprints.all.each do |sprint| %>
-  <% next if sprint.users.count == 0 %>
     <div class="row">
       <div class="offset1 span1"><strong>Team:</strong></div>
       <div class="span2">Code Monkeys</div>
@@ -32,12 +31,14 @@
       <div class="offset2 span2"><strong>NAME</strong></div>
       <div class="span2"><strong>ROLE</strong></div>
       <div class="span1"><strong>TIME</strong></div>
+      <div class="span3"><strong>Days of sprint worked</strong></div>
     </div>
-    <% sprint.users.each do |user| %>
+    <% sprint.users.order("name ASC").each do |user| %>
       <div class="row">
         <div class="offset2 span2"><%= user.name %></div>
         <div class="span2"><%= user.role %></div>
         <div class="span1"><%= user.percent %>%</div>
+        <div class="span1"><%= sprintf "%#.2f", user.days_of_sprint %></div>
       </div>
     <% end %>
     <div class="row">
